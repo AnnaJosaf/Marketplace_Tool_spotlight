@@ -1,0 +1,19 @@
+name: Tool Spotlight
+
+on: 
+  schedule:
+    - cron: '0 0 * * *' 
+
+jobs:
+  spotlight:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Generate spotlight
+      run: |
+        # Logic to select a tool randomly and generated a sportlight 
+        tool=$(ls tools | shuf -n 1)
+        cp tools/$tool/sportlight.md 
